@@ -1,8 +1,9 @@
 
 services:
   db:
-    # Use seeded MySQL image for convenience; swap to mysql:8.0 if you prefer mounting SQL files instead
-    image: jayanacpc/kfl-mysql-seeded:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.mysql
     restart: unless-stopped
     env_file: .env
     environment:
@@ -19,7 +20,7 @@ services:
       retries: 5
 
   web:
-    image: jayanacpc/kfl-map-search:latest
+    build: .
     restart: unless-stopped
     env_file: .env
     depends_on:
@@ -27,6 +28,11 @@ services:
         condition: service_healthy
     ports:
       - "8000:80"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     environment:
       DB_HOST: ${DB_HOST:-db}
       DB_USERNAME: ${DB_USERNAME:-kfl}
