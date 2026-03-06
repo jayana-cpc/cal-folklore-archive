@@ -8,6 +8,7 @@ $cms->js[] = "https://code.jquery.com/ui/1.12.1/jquery-ui.js";
 $cms->js[] = "js/kfl.js";
 
 $cms->css[] = "//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css";
+$cms->css[] = "https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap";
 $cms->css[] = "css/layout.css";
 $cms->css[] = "css/menu.css";
 
@@ -22,14 +23,15 @@ header('Content-Type: text/html; charset=utf-8');
 	<?php echo $cms->head(); ?> 
 </head>
 <body>
-<?php
-if ($_SERVER['SERVER_NAME']=='localhost'){
-	echo "<h1>This is localhost site</h1>";
-}
-?>
 <div id="wrapper">
 
-	<div id="topWrapper"></div>
+	<div id="topWrapper">
+	  <div id="site-header">
+	    <span class="wordmark">UC Berkeley</span>
+	    <span class="site-title">Folklore Archive</span>
+	  </div>
+	  <img src="images/folklorelogo2.png" id="header-logo" alt="Berkeley Folklore Archive logo" />
+	</div>
 
 	<table id="mainArea">
 	<tr>
@@ -46,8 +48,8 @@ if ($_SERVER['SERVER_NAME']=='localhost'){
 
 	<div id="footer">
 		<a href="https://www.universityofcalifornia.edu/">University of California</a> Copyright &copy; <?php echo date("Y"); ?> UC Regents&nbsp;&nbsp;|&nbsp;&nbsp;
-		<a href="https://cdh.ucla.edu/ticket" target="_blank">Web Support</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-		<a href="https://bitbucket.org/uclacdh/kfl-map-search" target="_blank">Open Source Code</a>
+		<a href="https://folklore.berkeley.edu" target="_blank">UC Berkeley Folklore</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="https://github.com/jayana-cpc/ucla-kfl-map-search" target="_blank">Open Source Code</a>
 	</div>
 
 </div>

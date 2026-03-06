@@ -36,7 +36,7 @@ mysqli_close($dbConn);
 <!--class="formStyle"-->
 <thead>
 <tr> 
-	<th class="form_title">UCLA ID</th>
+	<th class="form_title">CalNet ID</th>
 	<th class="form_title">Name</th>
 	<th class="form_title">Quarter</th>
 	<th class="form_title">

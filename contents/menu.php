@@ -1,6 +1,7 @@
 <?php global $user; ?>
 
 <div id="menu">
+<div class="nav-section-header">Folklore Archive</div>
 <ul class="menu">
 <li> <a href="">Home</a></li>
 <li> <a href="map">Search</a></li>

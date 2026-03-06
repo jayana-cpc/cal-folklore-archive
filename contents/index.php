@@ -1,5 +1,5 @@
 <?php 
-$cms->title = 'UCLA Korean Folklore Archive';
+$cms->title = 'UC Berkeley Folklore Archive';
 $user = check_auth(); 
 ?>
 <div style="margin-left:520px" class="small-label">
@@ -16,12 +16,24 @@ $user = check_auth();
 	<input type="hidden" id="collector_status" name="collector_status" value="">
 	</form>
 </div>
-<div style="margin-top:20px">
-<p class="display-text">
-The Korean / Korean American Online Folklore Archive is a growing on-line archive of contemporary popular and traditional culture of Korea. The archive is based entirely on student collections in two upper division Asian Languages and Cultures courses (Korean M183 and Korean 187) at UCLA, serving between seventy and one hundred undergraduate students per academic year. In each class, a significant  portion of the coursework is comprised of individual, original fieldwork among the populations of Korean heritage in Southern California. Students input their fieldwork through a web interface and the results of their fieldwork is stored in a database residing on a server maintained by the Center for Digital Humanities. Currently, there are over 4000 records in the archive.
-</p>
-<p class="display-text">
-The majority of the folklore collected in the archive is either in English or in Korean. Korean language recordings, and Korean words, are transcribed using the McCune-Reischauer transcription method. Instructions on transcribing according to the McCune-Reischauer system can be found <a href = 'http://roman.cs.pusan.ac.kr/input_eng.aspx' target=_blank>here</a>.
-</p>
-
+<div class="archive-hero">
+  <div class="hero-text">
+    <h1 class="hero-title">UC Berkeley<br>Folklore Archive</h1>
+    <p class="hero-desc">
+      A growing digital collection of folklore and oral traditions gathered by
+      students and researchers affiliated with UC Berkeley's Folklore program.
+      The archive documents expressive culture across communities, languages, and regions.
+    </p>
+    <div class="hero-actions">
+      <a href="map" class="btn-primary">Explore the Map</a>
+      <a href="dashboard" class="btn-secondary">My Dashboard</a>
+    </div>
+  </div>
+</div>
+<div class="archive-about">
+  <p class="display-text">
+    Fieldwork records are contributed through a web interface and stored in a searchable
+    database maintained by the UC Berkeley Folklore program. Use the map to explore records
+    geographically, or browse the full collection using the navigation menu.
+  </p>
 </div>

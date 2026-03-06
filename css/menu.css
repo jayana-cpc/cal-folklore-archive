@@ -1,28 +1,43 @@
 .leftcolumn {
 margin:0px;
-padding:0px 0px 0px 0px;
+padding:0px 0px 20px 0px;
 width : 250px;
-font-family: "Trade Gothic", Arial, san-serif;
+font-family: "Source Sans 3", Arial, sans-serif;
 font-size:14px;
 text-transform:capitalize;
-border-right: 1px dotted #0a51a1;
+border-right: none;
+background: #ffffff;
+box-shadow: 1px 0 4px rgba(0,0,0,0.06);
 }
 
-.leftcolumn  a {
-color: #1a2d7f;
-text-decoration:none;
-padding:0px 10px;
-margin:0px 0px;
-display:block;
-background:none;
-font-weight:bold;
+.nav-section-header {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #002676;
+  padding: 20px 16px 8px;
+  border-bottom: 2px solid #FDB515;
+  margin-bottom: 4px;
 }
 
-.leftcolumn  a:hover {
-color: #212121;
-padding-left:10px;
-background:none;
-display:block;
+.leftcolumn a {
+  color: #002676;
+  text-decoration: none;
+  padding: 8px 16px;
+  margin: 0;
+  display: block;
+  background: none;
+  font-weight: 500;
+  font-size: 14px;
+  border-bottom: 1px solid #eef0f3;
+  transition: background 0.12s, border-left 0.12s;
+}
+
+.leftcolumn a:hover {
+  background: #dce9f5;
+  border-left: 3px solid #FDB515;
+  padding-left: 13px;
+  color: #002676;
 }
 
 ul.menu,
@@ -41,8 +56,8 @@ float: left;
 }
 
 ul.menu li {
-padding:4px 0px;
-border-bottom: 1px dotted #0a51a1;
+padding:0;
+border-bottom: none;
 float: left;
 line-height: 1.3em;
 vertical-align: middle;
@@ -54,12 +69,13 @@ ul.menu li:hover {
 position: relative;
 z-index: 599;
 cursor: default;
-background:#e9eff3;
+background: none;
+border-left: none;
 }
 
 ul.menu ul li.hover,
 ul.menu ul li:hover {
-background:#ccd6dd;
+background:#b8d0e8;
 }
 ul.menu ul {
 visibility: hidden;
@@ -72,7 +88,7 @@ width: 100%;
 
 ul.menu ul li {
 float: none;
-border-bottom: 1px dotted #0a51a1;
+border-bottom: 1px dotted #002676;
 }
 
 ul.menu ul ul {
@@ -81,8 +97,8 @@ left: 99%;
 }
 
 ul.menu li:hover > ul {
-visibility: visible; 
-background:#e9eff3; 
+visibility: visible;
+background:#dce9f5;
 width:230px;
 font-size:12px;
 }

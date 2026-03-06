@@ -73,7 +73,7 @@ $r2 = mysqli_query($dbConn, $q2);
 	</p>
 	<p>
 		<div>
-			Add a new admin (enter UCLA Logon ID): 
+			Add a new admin (enter CalNet ID):
 			<br>
 			<span style="font-style:italic;font-size:12px;">
 				Plese note that only the person who is/was a collector in the system can be added as admin.
