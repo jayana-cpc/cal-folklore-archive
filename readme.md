@@ -2,7 +2,7 @@
 
 ## Quick start (Docker)
 
-1. Clone: `git clone https://github.com/jayana-cpc/ucla-kfl-map-search.git`.
+1. Clone: `git clone https://github.com/jayana-cpc/cal-folklore-archive.git`.
 2. Run: `cp .env.example .env` and adjust values if desired.
 3. Build and run: `docker compose up -d`
 4. Open `http://localhost:8000/map`
