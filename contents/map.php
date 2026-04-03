@@ -3,47 +3,53 @@
 $cms->css = array();
 $cms->js = array();
 
+// Bust browser/CDN caches when files change (Docker rebuild alone does not refresh cached CSS/JS)
+$mapAsset = function ($webPath) {
+    $fs = dirname(__DIR__) . $webPath;
+    return $webPath . (is_readable($fs) ? ('?' . filemtime($fs)) : '');
+};
+
 // Restore site layout CSS (absolute paths to avoid base tag issues)
-$cms->css[] = "/css/layout.css";
-$cms->css[] = "/css/menu.css";
+$cms->css[] = $mapAsset('/css/layout.css');
+$cms->css[] = $mapAsset('/css/menu.css');
 
 // CSS for widgets and map UI
-$cms->css[] = "/map_search/bower_components/jqueryui/themes/base/jquery-ui.css";
-$cms->css[] = "/map_search/bower_components/jquery-ui-multiselect/jquery.multiselect.css";
-$cms->css[] = "/map_search/bower_components/jQRangeSlider-5.5.0/css/classic.min.css";
-$cms->css[] = "/map_search/main.css";
+$cms->css[] = $mapAsset('/map_search/bower_components/jqueryui/themes/base/jquery-ui.css');
+$cms->css[] = $mapAsset('/map_search/bower_components/jquery-ui-multiselect/jquery.multiselect.css');
+$cms->css[] = $mapAsset('/map_search/bower_components/jQRangeSlider-5.5.0/css/classic.min.css');
+$cms->css[] = $mapAsset('/map_search/main.css');
 
 // JS (ordered: core -> UI -> plugins -> app)
-$cms->js[] = "/map_search/bower_components/jquery/jquery.min.js";          // jQuery 2.0.3
-$cms->js[] = "/map_search/bower_components/jqueryui/jquery-ui.min.js";     // jQuery UI 1.10.x browser build
-$cms->js[] = "/map_search/bower_components/jquery-ui-multiselect/jquery.multiselect.js";
+$cms->js[] = $mapAsset('/map_search/bower_components/jquery/jquery.min.js');          // jQuery 2.0.3
+$cms->js[] = $mapAsset('/map_search/bower_components/jqueryui/jquery-ui.min.js');     // jQuery UI 1.10.x browser build
+$cms->js[] = $mapAsset('/map_search/bower_components/jquery-ui-multiselect/jquery.multiselect.js');
 // Local jQRangeSlider plugins (no CDN)
-$cms->js[] = "/map_search/bower_components/jQRangeSlider-5.5.0/jQRangeSliderMouseTouch.min.js";
-$cms->js[] = "/map_search/bower_components/jQRangeSlider-5.5.0/jQRangeSliderDraggable.min.js";
-$cms->js[] = "/map_search/bower_components/jQRangeSlider-5.5.0/jQRangeSliderHandle.min.js";
-$cms->js[] = "/map_search/bower_components/jQRangeSlider-5.5.0/jQRangeSliderBar.min.js";
-$cms->js[] = "/map_search/bower_components/jQRangeSlider-5.5.0/jQRangeSliderLabel.min.js";
-$cms->js[] = "/map_search/bower_components/jQRangeSlider-5.5.0/jQRangeSlider.min.js";
-$cms->js[] = "/map_search/bower_components/jQRangeSlider-5.5.0/jQRuler.min.js";
-$cms->js[] = "/map_search/bower_components/jquery-collapsible/jquery.collapsible.js";
-$cms->js[] = "/map_search/bower_components/underscore/underscore-min.js";
-$cms->js[] = "/map_search/bower_components/backbone/backbone-min.js";
-$cms->js[] = "/map_search/bower_components/mustache/mustache.js";
-$cms->js[] = "/map_search/bower_components/openlayers/OpenLayers.js";
-$cms->js[] = "/map_search/bower_components/vc/src/VC.js";
-$cms->js[] = "/map_search/bower_components/vc/src/SearchResultsLayer.js";
+$cms->js[] = $mapAsset('/map_search/bower_components/jQRangeSlider-5.5.0/jQRangeSliderMouseTouch.min.js');
+$cms->js[] = $mapAsset('/map_search/bower_components/jQRangeSlider-5.5.0/jQRangeSliderDraggable.min.js');
+$cms->js[] = $mapAsset('/map_search/bower_components/jQRangeSlider-5.5.0/jQRangeSliderHandle.min.js');
+$cms->js[] = $mapAsset('/map_search/bower_components/jQRangeSlider-5.5.0/jQRangeSliderBar.min.js');
+$cms->js[] = $mapAsset('/map_search/bower_components/jQRangeSlider-5.5.0/jQRangeSliderLabel.min.js');
+$cms->js[] = $mapAsset('/map_search/bower_components/jQRangeSlider-5.5.0/jQRangeSlider.min.js');
+$cms->js[] = $mapAsset('/map_search/bower_components/jQRangeSlider-5.5.0/jQRuler.min.js');
+$cms->js[] = $mapAsset('/map_search/bower_components/jquery-collapsible/jquery.collapsible.js');
+$cms->js[] = $mapAsset('/map_search/bower_components/underscore/underscore-min.js');
+$cms->js[] = $mapAsset('/map_search/bower_components/backbone/backbone-min.js');
+$cms->js[] = $mapAsset('/map_search/bower_components/mustache/mustache.js');
+$cms->js[] = $mapAsset('/map_search/bower_components/openlayers/OpenLayers.js');
+$cms->js[] = $mapAsset('/map_search/bower_components/vc/src/VC.js');
+$cms->js[] = $mapAsset('/map_search/bower_components/vc/src/SearchResultsLayer.js');
 
 // App scripts
-$cms->js[] = "/map_search/AppRoot.js";
-$cms->js[] = "/map_search/input_form/Form.js";
-$cms->js[] = "/map_search/input_form/Query.js";
-$cms->js[] = "/map_search/map/ContextMonitor.js";
-$cms->js[] = "/map_search/map/Map.js";
-$cms->js[] = "/map_search/map/ResultLayer.js";
-$cms->js[] = "/map_search/result_list/Result.js";
-$cms->js[] = "/map_search/result_list/List.js";
-$cms->js[] = "/map_search/result_list/Collection.js";
-$cms->js[] = "/map_search/result_list/SummaryItem.js";
+$cms->js[] = $mapAsset('/map_search/AppRoot.js');
+$cms->js[] = $mapAsset('/map_search/input_form/Form.js');
+$cms->js[] = $mapAsset('/map_search/input_form/Query.js');
+$cms->js[] = $mapAsset('/map_search/map/ContextMonitor.js');
+$cms->js[] = $mapAsset('/map_search/map/Map.js');
+$cms->js[] = $mapAsset('/map_search/map/ResultLayer.js');
+$cms->js[] = $mapAsset('/map_search/result_list/Result.js');
+$cms->js[] = $mapAsset('/map_search/result_list/List.js');
+$cms->js[] = $mapAsset('/map_search/result_list/Collection.js');
+$cms->js[] = $mapAsset('/map_search/result_list/SummaryItem.js');
 
 $dbConn = get_connection();
 
@@ -227,6 +233,7 @@ mysqli_close($dbConn);
 </script>
 
 
+<div class="map-page">
 <div id="search-wrapper"></div>
 <div id="map-wrapper">
     <div id="map"></div>
@@ -237,6 +244,7 @@ mysqli_close($dbConn);
     <span class="next-page">&gt;</span>
     <div class="result-list">
     </div>
+</div>
 </div>
 <script>
 $(function () {

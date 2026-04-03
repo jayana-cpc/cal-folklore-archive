@@ -1,6 +1,7 @@
 
 services:
   db:
+    image: jayanacpc/cal-map-search-db:latest
     build:
       context: .
       dockerfile: Dockerfile.mysql
@@ -20,6 +21,7 @@ services:
       retries: 5
 
   web:
+    image: jayanacpc/cal-map-search-web:latest
     build: .
     restart: unless-stopped
     env_file: .env
