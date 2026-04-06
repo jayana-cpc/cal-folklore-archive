@@ -14,11 +14,18 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-kflpass}
     volumes:
       - db_data:/var/lib/mysql
+    # Ping localhost uses a Unix socket and succeeds while initdb runs with --skip-networking,
+    # so the web container could start before TCP is available. Force TCP so we wait until init finishes.
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test:
+        [
+          "CMD-SHELL",
+          "mysqladmin ping -h 127.0.0.1 -uroot -p\"$$MYSQL_ROOT_PASSWORD\" || exit 1",
+        ]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 10
+      start_period: 600s
 
   web:
     image: jayanacpc/cal-map-search-web:latest
